@@ -18,7 +18,7 @@ class WebActivity : AppCompatActivity() {
     lateinit var web: WebView
     lateinit var back:TextView
 
-    val url="http://193.169.0.227:8080"
+    val url="https://open.viatomtech.com.cn/auth/#/?sign=un1j7v6WKyTbWyVdGP/nFw=="
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
