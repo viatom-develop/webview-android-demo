@@ -65,7 +65,7 @@ class WebActivity : AppCompatActivity() {
 
         back=findViewById(R.id.back)
         back.setOnClickListener {
-            web.goBack()
+            onBackPressed()
         }
     }
 
@@ -118,7 +118,12 @@ class WebActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        web.goBack()
+        if(web.canGoBack()){
+            web.goBack()
+        }else{
+            this.finish()
+        }
+
     }
 
 
