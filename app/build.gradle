@@ -11,8 +11,6 @@ android {
         applicationId "com.viatom.myapplication"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,6 +27,28 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def buildTypeName = ""
+
+            if (outputFile != null) {
+                if (outputFile.name.contains('release')) {
+                    buildTypeName += "webDemo-release-"
+                } else if (outputFile.name.contains('debug')) {
+                    buildTypeName += "webDemo-debug-"
+                }
+
+            }
+
+            def fileName = "webDemo-" +
+                    "${buildTypeName}" +
+                    "${variant.versionName}" +
+                    ".apk"
+            outputFileName = fileName
+        }
     }
 }
 
